@@ -2,7 +2,7 @@
 
 require_relative './bank_statement'
 
-# documentation about the class
+# Bank account class which is initialized with a statement
 class BankAccount
   OPENING_BALANCE = 0
   attr_reader :balance, :statement
@@ -34,7 +34,6 @@ class BankAccount
   end
 
   def update_statement(amount)
-    transaction_info = { date: Time.new.strftime('%d/%m/%Y'), amount: amount, balance: @balance }
-    @statement.add_transaction(transaction_info)
+    @statement.add_transaction(Time.new.strftime('%d/%m/%Y'), amount, @balance)
   end
 end

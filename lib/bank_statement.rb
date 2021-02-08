@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# documentation about the class
+# bankstatement class
 class BankStatement
   attr_reader :transactions
 
@@ -12,7 +12,8 @@ class BankStatement
     @transactions.length
   end
 
-  def add_transaction(transaction_info)
-    @transactions.push(transaction_info)
+  def add_transaction(amount)
+    transaction = { date: Time.new.strftime('%d/%m/%Y'), amount: amount, balance: @balance }
+    @transactions.push(transaction)
   end
 end

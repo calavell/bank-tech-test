@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# documentation about the class
+# statementprinter class
 class StatementPrinter
   FORMATTED_HEADER = 'date || credit || debit || balance'
   attr_reader :statement_to_print, :header
