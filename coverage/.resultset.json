@@ -1,7 +1,79 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/cahallavelle/Desktop/Makers/week10/bank-tech-test/spec/bank_account_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          6,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/cahallavelle/Desktop/Makers/week10/bank-tech-test/lib/bank_account.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          6,
+          null,
+          null,
+          1,
+          9,
+          null,
+          7,
+          null,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          null,
+          1,
+          9,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1612783764
+    "timestamp": 1612787421
   }
 }
