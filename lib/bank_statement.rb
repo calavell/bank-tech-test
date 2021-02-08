@@ -12,8 +12,8 @@ class BankStatement
     @transactions.length
   end
 
-  def add_transaction(amount)
-    transaction = { date: Time.new.strftime('%d/%m/%Y'), amount: amount, balance: @balance }
+  def add_transaction(date, amount, balance)
+    transaction = { date: date, amount: amount, balance: balance }
     @transactions.push(transaction)
   end
 end
