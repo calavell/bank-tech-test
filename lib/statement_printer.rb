@@ -11,7 +11,7 @@ class StatementPrinter
   end
 
   def print_statement(bank_account)
-    raise 'There is no statement for this account' if bank_account.no_transactions?
+    raise 'There is no statement for this account' if bank_account.statement.no_transactions?
 
     bank_account.statement.transactions.each do |transaction|
       if transaction[:amount].negative? == true

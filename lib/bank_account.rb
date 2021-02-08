@@ -23,10 +23,6 @@ class BankAccount
     @balance
   end
 
-  def no_transactions?
-    @statement.transactions.empty?
-  end
-
   private
 
   def insufficient_funds?(amount)
