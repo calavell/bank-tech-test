@@ -1,19 +1,20 @@
+# frozen_string_literal: true
+
 require 'statement_printer'
 
 describe StatementPrinter do
   transactions = [
-    {:date=>"08/02/2021", :amount=>5, :balance=>5},
-    {:date=>"09/02/2021", :amount=>5, :balance=>10},
-    {:date=>"10/02/2021", :amount=>-2, :balance=>8}
+    { date: '08/02/2021', amount: 5, balance: 5 },
+    { date: '09/02/2021', amount: 5, balance: 10 },
+    { date: '10/02/2021', amount: -2, balance: 8 }
   ]
 
   answer = [
-    "date || credit || debit || balance",
-    "08/02/2021 || 5 ||  || 5",
-    "09/02/2021 || 5 ||  || 10",
-    "10/02/2021 || || 2 || 8"
+    'date || credit || debit || balance',
+    '08/02/2021 || 5 ||  || 5',
+    '09/02/2021 || 5 ||  || 10',
+    '10/02/2021 || || 2 || 8'
   ]
-
 
   let(:printer) { described_class.new }
 
@@ -35,6 +36,3 @@ describe StatementPrinter do
     end
   end
 end
-
-
-# expect { bank_account.adjust_balance(-1) }.to raise_error('Insufficient funds')

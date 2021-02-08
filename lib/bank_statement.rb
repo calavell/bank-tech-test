@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# documentation about the class
 class BankStatement
   attr_reader :transactions
 
@@ -9,12 +12,7 @@ class BankStatement
     @transactions.length
   end
 
-  def transactions
-    @transactions
-  end
-
-  def add_transaction(date, amount, balance)
-    transaction = { :date => date, :amount => amount, :balance => balance }
-    @transactions.push(transaction)
+  def add_transaction(transaction_info)
+    @transactions.push(transaction_info)
   end
 end

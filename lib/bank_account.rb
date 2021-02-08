@@ -1,10 +1,13 @@
-require_relative './bank_statement.rb'
+# frozen_string_literal: true
 
+require_relative './bank_statement'
+
+# documentation about the class
 class BankAccount
   OPENING_BALANCE = 0
   attr_reader :balance, :statement
 
-  def initialize(bank_statement = BankStatement.new, balance = OPENING_BALANCE)
+  def initialize(bank_statement = BankStatement.new)
     @balance = OPENING_BALANCE
     @statement = bank_statement
   end
@@ -21,7 +24,7 @@ class BankAccount
   end
 
   def no_transactions?
-    @statement.transactions.length == 0
+    @statement.transactions.empty?
   end
 
   private
@@ -31,6 +34,7 @@ class BankAccount
   end
 
   def update_statement(amount)
-    @statement.add_transaction(Time.new.strftime("%d/%m/%Y"), amount, @balance)
+    transaction_info = { date: Time.new.strftime('%d/%m/%Y'), amount: amount, balance: @balance }
+    @statement.add_transaction(transaction_info)
   end
 end

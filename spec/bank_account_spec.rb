@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'bank_account'
 
 describe BankAccount do
   let(:bank_account) { described_class.new }
-  
+
   describe '#adjust_balance' do
     it 'will call the update_statement method' do
       expect(bank_account).to receive(:update_statement).with(10)
