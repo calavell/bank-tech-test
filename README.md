@@ -39,6 +39,7 @@ date || credit || debit || balance
 - To run your tests, run  ```rspec```  in the command line and the output will show in your terminal.
 - To run that app, from within the root directory run  ```irb -r './lib/bank_account.rb'```.
 - To get started, initialize an instance of the BankAccount class. For example  ```bank_account = BankAccount.new```.
-- You can add or subtract money from the account by using the adjust_balance method which will accept a positive or negative integer. Eg. ```bank_account.adjust_balance(10)``` to credit your account, and ```bank_account.adjust_balance(-10)```  to debit your account.
+- You can add money to the account by using the credit_account method which will accept a positive integer. Eg. ```bank_account.credit_account(10)``` to credit your account.
+- You can take money from the account by using the debit_account method which will accept a positive integer. Eg. ```bank_account.debit_account(10)``` to debit your account.
 - You can view your current balance like so:  ```bank_account.current_balance```.
 - You can view your printed bank statement at any time by using the print_statement method, eg. ```bank_account.print_statement```. This will only work once you have made at least one transaction.

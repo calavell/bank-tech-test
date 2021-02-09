@@ -15,7 +15,7 @@ class BankStatement
     @transactions.length
   end
 
-  def add_transaction(date, credit, debit, balance)
+  def add_transaction(date:, credit:, debit:, balance:)
     transaction = @transaction_class.new(date, credit, debit, balance)
     @transactions.push(transaction)
   end

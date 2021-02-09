@@ -15,7 +15,7 @@ describe BankAccount do
 
   describe '#credit_account' do
     it 'will call the update_statement method' do
-      expect(bank_account).to receive(:update_statement).with(10, nil)
+      expect(bank_account).to receive(:update_statement).with(credit: 10, debit: nil)
       bank_account.credit_account(10)
     end
 
@@ -34,7 +34,7 @@ describe BankAccount do
   describe '#debit_account' do
     it 'will call the update_statement method as long as there are enough funds' do
       bank_account.credit_account(10)
-      expect(bank_account).to receive(:update_statement).with(nil, 10)
+      expect(bank_account).to receive(:update_statement).with(credit: nil, debit: 10)
       bank_account.debit_account(10)
     end
     it 'will error if you try to withdraw when balance is zero' do

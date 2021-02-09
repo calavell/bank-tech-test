@@ -7,16 +7,16 @@ describe BankStatement do
 
   describe '#add_transaction' do
     it 'adds a transaction to the statement for a credit' do
-      expect { bank_statement.add_transaction(date, 5, nil, 5) }.to change { bank_statement.statement_length }.from(0).to(1)
+      expect { bank_statement.add_transaction(date: date, credit: 5, debit: nil, balance: 5) }.to change { bank_statement.statement_length }.from(0).to(1)
     end
 
     it 'adds a transaction to the statement for a debit' do
-      expect { bank_statement.add_transaction(date, nil, 5, 5) }.to change { bank_statement.statement_length }.from(0).to(1)
+      expect { bank_statement.add_transaction(date: date, credit: nil, debit: 5, balance: 5) }.to change { bank_statement.statement_length }.from(0).to(1)
     end
 
     it 'adds a transaction to the statement for a debit if it empties the account' do
-      bank_statement.add_transaction(date, 5, nil,  5)
-      expect { bank_statement.add_transaction(date, nil, 5, 0) }.to change { bank_statement.statement_length }.from(1).to(2)
+      bank_statement.add_transaction(date: date, credit: 5, debit: nil, balance: 5)
+      expect { bank_statement.add_transaction(date: date, credit: nil, debit: 5, balance: 0) }.to change { bank_statement.statement_length }.from(1).to(2)
     end
   end
 
@@ -26,7 +26,7 @@ describe BankStatement do
     end
 
     it 'returns false if there is at least one transactions logged to the statement' do
-      bank_statement.add_transaction(date, 5, nil, 0)
+      bank_statement.add_transaction(date: date, credit: 5, debit: nil, balance: 0)
       expect(bank_statement.no_transactions?).to eq false
     end
   end

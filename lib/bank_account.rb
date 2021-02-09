@@ -16,14 +16,14 @@ class BankAccount
 
   def credit_account(amount)
     @balance += amount
-    update_statement(amount, nil)
+    update_statement(credit: amount, debit: nil)
   end
 
   def debit_account(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
 
     @balance -= amount
-    update_statement(nil, amount)
+    update_statement(credit: nil, debit: amount)
   end
 
   def current_balance
@@ -40,7 +40,10 @@ class BankAccount
     (@balance - amount).negative?
   end
 
-  def update_statement(credit, debit)
-    @statement.add_transaction(Time.new.strftime('%d/%m/%Y'), credit, debit, @balance)
+# Given the current printing format is a row with a column for both credit and debit,
+# I thought it best that every transaction maintains data for each column.
+# One of these will always be nill
+  def update_statement(credit:, debit:)
+    @statement.add_transaction(date: Time.new.strftime('%d/%m/%Y'), credit: credit, debit: debit, balance: @balance)
   end
 end
