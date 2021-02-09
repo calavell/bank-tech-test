@@ -43,3 +43,27 @@ date || credit || debit || balance
 - You can take money from the account by using the debit_account method which will accept a positive integer. Eg. ```bank_account.debit_account(10)``` to debit your account.
 - You can view your current balance like so:  ```bank_account.current_balance```.
 - You can view your printed bank statement at any time by using the print_statement method, eg. ```bank_account.print_statement```. This will only work once you have made at least one transaction.
+
+## Approach
+- My approach with the app was to have a mixture of classes serving different purposes but from a user point of view, I only wanted the bank account class to be the one that is being interacted with. The other classes are called on from the bank account class
+- The app was built using a TDD approach. I also tried to focus on ease of change as the main feature of the app which is printing is based on a specific format which could be subject to change. I wanted to build the app in a way that would allow for quick changes if another column had to be added to the statement.
+
+## Code Structure
+- The code is structured into 4 different classes (BankAccount, BankStatement, StatementPrinter, and Transaction). The classes are all linked together through the bank account class. A bank statement is created automatically when a new bank account is created, and this is also the case for a printer. Transactions are created ad hoc as the account is debited an d credited. These class files can all be found in the lib directory with the file name matching each class.
+- The test files can be found in the spec directory. There is a different file for each class. There is no testing file for the transaction class as it only has state and no methods.
+
+## Screenshots
+![Screenshot](./images/new_bank_account.png)
+Creating a new bank account
+
+![Screenshot](./images/crediting_bank_account.png)
+Crediting the bank account
+
+![Screenshot](./images/debiting_bank_account.png)
+Debiting the bank account
+
+![Screenshot](./images/checking_bank_balance.png)
+Checking your balance
+
+![Screenshot](./images/printing_bank_statement.png)
+- Printing your statement

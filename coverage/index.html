@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-09T14:18:57+00:00">2021-02-09T14:18:57+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-09T14:55:59+00:00">2021-02-09T14:55:59+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -976,7 +976,7 @@
 
             
 
-            <code class="ruby">    @transactions.push(transaction)</code>
+            <code class="ruby">    @transactions.unshift(transaction)</code>
           </li>
         </div>
       
@@ -1401,7 +1401,7 @@
 
             
 
-            <code class="ruby">  attr_reader :date, :amount, :balance</code>
+            <code class="ruby">  attr_reader :date, :balance, :credit, :debit</code>
           </li>
         </div>
       
@@ -2671,7 +2671,7 @@
 
             
 
-            <code class="ruby"># let(:bank_statement) { double(BankStatement, transactions: transactions, no_transactions?: false) }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2775,35 +2775,35 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="15">
+            <span class="hits">2</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">  let(:transaction1) { double(Transaction, date: &#39;08/02/2021&#39;, credit: 5, debit: nil, balance: 5) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="16">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">  describe &#39;#print_statement&#39; do</code>
+            <code class="ruby">  let(:transaction2) { double(Transaction, date: &#39;09/02/2021&#39;, credit: 5, debit: nil, balance: 10) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="17">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="17">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">    context &#39;when there are transactions on the account&#39; do</code>
+            <code class="ruby">  let(:transaction3) { double(Transaction, date: &#39;10/02/2021&#39;, credit: nil, debit: 2, balance: 8) }</code>
           </li>
         </div>
       
@@ -2814,7 +2814,7 @@
 
             
 
-            <code class="ruby">      let(:transaction1) { double(Transaction, date: &#39;08/02/2021&#39;, credit: 5, debit: nil, balance: 5) }</code>
+            <code class="ruby">  let(:transaction_list) { [transaction1, transaction2, transaction3] }</code>
           </li>
         </div>
       
@@ -2825,40 +2825,40 @@
 
             
 
-            <code class="ruby">      let(:transaction2) { double(Transaction, date: &#39;09/02/2021&#39;, credit: 5, debit: nil, balance: 10) }</code>
+            <code class="ruby">  let(:bank_statement) { double(BankStatement, transactions: transaction_list, no_transactions?: false) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="20">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="20">
+            
             
 
             
 
-            <code class="ruby">      let(:transaction3) { double(Transaction, date: &#39;10/02/2021&#39;, credit: nil, debit: 2, balance: 8) }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="21">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      let(:transaction_list) { [transaction1, transaction2, transaction3] }</code>
+            <code class="ruby">  describe &#39;#print_statement&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="22">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      let(:bank_statement) { double(BankStatement, transactions: transaction_list, no_transactions?: false) }</code>
+            <code class="ruby">    context &#39;when there are transactions on the account&#39; do</code>
           </li>
         </div>
       

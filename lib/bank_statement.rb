@@ -17,7 +17,7 @@ class BankStatement
 
   def add_transaction(date:, credit:, debit:, balance:)
     transaction = @transaction_class.new(date, credit, debit, balance)
-    @transactions.push(transaction)
+    @transactions.unshift(transaction)
   end
 
   def no_transactions?
