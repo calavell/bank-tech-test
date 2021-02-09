@@ -23,6 +23,11 @@ class BankAccount
     @balance
   end
 
+  def print_statement
+    @statementprinter = StatementPrinter.instance
+    @statementprinter.print_statement(@statement)
+  end
+
   private
 
   def insufficient_funds?(amount)

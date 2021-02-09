@@ -21,18 +21,22 @@ describe StatementPrinter do
   describe '#print_statement' do
     context 'when there are transactions on the account' do
       let(:bank_statement) { double(BankStatement, transactions: transactions, no_transactions?: false) }
-      let(:bank_account) { double(BankAccount.new, statement: bank_statement) }
       it 'prints off a statement in the correct format' do
-        expect(printer.print_statement(bank_account)).to eq(answer)
+        expect(printer.print_statement(bank_statement)).to eq(answer)
       end
     end
 
     context 'when there are no transactions on the account' do
       let(:empty_bank_statement) { double(BankStatement, no_transactions?: true) }
-      let(:empty_bank_account) { double(BankAccount.new, statement: empty_bank_statement) }
       it 'prints riases an error if there are no transactions in the account' do
-        expect { printer.print_statement(empty_bank_account) }.to raise_error('There is no statement for this account')
+        expect { printer.print_statement(empty_bank_statement) }.to raise_error('There is no statement for this account')
       end
+    end
+  end
+
+  describe '.instance' do
+    it 'creates an instance of StatementPrinter class' do
+      expect(StatementPrinter.instance).to be_instance_of(StatementPrinter)
     end
   end
 end

@@ -31,6 +31,5 @@ date || credit || debit || balance
 ![Screenshot](class-diagram.png)
 
 ## Todos
-- refactor the print statement method to be called on statement and not account
 - try to rejig above to conform with O principal
 - DRY up spec files
