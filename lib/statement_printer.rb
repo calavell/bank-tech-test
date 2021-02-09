@@ -11,12 +11,11 @@ class StatementPrinter
   end
 
   def print_bank_statement(statement)
-    raise 'There is no statement for this account' if statement.no_transactions?
-
+    # the final line of this method is present for testing purposes only. Uncomment it to pass tests
     statement.transactions.each do |transaction|
       @printout.push("#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}")
     end
     puts @printout
-    @printout
+    # @printout
   end
 end

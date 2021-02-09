@@ -19,8 +19,4 @@ class BankStatement
     transaction = @transaction_class.new(date, credit, debit, balance)
     @transactions.unshift(transaction)
   end
-
-  def no_transactions?
-    @transactions.empty?
-  end
 end
