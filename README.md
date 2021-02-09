@@ -54,16 +54,21 @@ date || credit || debit || balance
 
 ## Screenshots
 ![Screenshot](./images/new_bank_account.png)
+
 Creating a new bank account
 
 ![Screenshot](./images/crediting_bank_account.png)
+
 Crediting the bank account
 
 ![Screenshot](./images/debiting_bank_account.png)
+
 Debiting the bank account
 
 ![Screenshot](./images/checking_bank_balance.png)
+
 Checking your balance
 
 ![Screenshot](./images/printing_bank_statement.png)
-- Printing your statement
+
+Printing your statement
