@@ -14,11 +14,16 @@ class BankAccount
     @printer = statement_printer
   end
 
-  def adjust_balance(amount)
+  def credit_account(amount)
+    @balance += amount
+    update_statement(amount, nil)
+  end
+
+  def debit_account(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
 
-    @balance += amount
-    update_statement(amount)
+    @balance -= amount
+    update_statement(nil, amount)
   end
 
   def current_balance
@@ -32,10 +37,10 @@ class BankAccount
   private
 
   def insufficient_funds?(amount)
-    (@balance + amount).negative?
+    (@balance - amount).negative?
   end
 
-  def update_statement(amount)
-    @statement.add_transaction(Time.new.strftime('%d/%m/%Y'), amount, @balance)
+  def update_statement(credit, debit)
+    @statement.add_transaction(Time.new.strftime('%d/%m/%Y'), credit, debit, @balance)
   end
 end
