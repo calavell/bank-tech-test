@@ -1,9 +1,17 @@
 # frozen_string_literal: true
 
 require 'bank_account'
+require 'statement_printer'
 
 describe BankAccount do
   let(:bank_account) { described_class.new }
+
+  describe '#print_statement' do
+    it 'calls the print_bank_statement method' do
+      expect(bank_account.printer).to receive(:print_bank_statement).with(bank_account.statement)
+      bank_account.print_statement
+    end
+  end
 
   describe '#adjust_balance' do
     it 'will call the update_statement method' do

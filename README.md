@@ -31,5 +31,4 @@ date || credit || debit || balance
 ![Screenshot](class-diagram.png)
 
 ## Todos
-- try to rejig above to conform with O principal
 - DRY up spec files

@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 require_relative './bank_statement'
+require_relative './statement_printer'
 
 # Bank account class which is initialized with a statement
 class BankAccount
   OPENING_BALANCE = 0
-  attr_reader :balance, :statement
+  attr_reader :balance, :statement, :printer
 
-  def initialize(bank_statement = BankStatement.new)
+  def initialize(bank_statement = BankStatement.new, statement_printer = StatementPrinter.new)
     @balance = OPENING_BALANCE
     @statement = bank_statement
+    @printer = statement_printer
   end
 
   def adjust_balance(amount)
@@ -24,8 +26,7 @@ class BankAccount
   end
 
   def print_statement
-    @statementprinter = StatementPrinter.instance
-    @statementprinter.print_statement(@statement)
+    @printer.print_bank_statement(@statement)
   end
 
   private

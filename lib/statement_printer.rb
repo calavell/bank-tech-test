@@ -10,20 +10,17 @@ class StatementPrinter
     @statement_to_print = [@header]
   end
 
-  def print_statement(statement)
+  def print_bank_statement(statement)
     raise 'There is no statement for this account' if statement.no_transactions?
 
     statement.transactions.each do |transaction|
-      if transaction[:amount].negative? == true
-        @statement_to_print.push("#{transaction[:date]} || || #{transaction[:amount].abs} || #{transaction[:balance]}")
+      if transaction.amount.negative? == true
+        @statement_to_print.push("#{transaction.date} || || #{transaction.amount.abs} || #{transaction.balance}")
       else
-        @statement_to_print.push("#{transaction[:date]} || #{transaction[:amount]} ||  || #{transaction[:balance]}")
+        @statement_to_print.push("#{transaction.date} || #{transaction.amount} ||  || #{transaction.balance}")
       end
     end
+    puts @statement_to_print
     @statement_to_print
-  end
-
-  def self.instance
-    @statement_printer ||= StatementPrinter.new
   end
 end
