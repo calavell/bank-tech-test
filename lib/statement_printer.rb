@@ -11,11 +11,9 @@ class StatementPrinter
   end
 
   def print_bank_statement(statement)
-    # the final line of this method is present for testing purposes only. Uncomment it to pass tests
     statement.transactions.each do |transaction|
-      @printout.push("#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}")
+      @printout.push("#{transaction.date.strftime('%d/%m/%Y')} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}")
     end
     puts @printout
-    # @printout
   end
 end

@@ -44,6 +44,6 @@ class BankAccount
 # I thought it best that every transaction maintains data for each column.
 # One of these will always be nill
   def update_statement(credit:, debit:)
-    @statement.add_transaction(date: Time.new.strftime('%d/%m/%Y'), credit: credit, debit: debit, balance: @balance)
+    @statement.add_transaction(date: Time.new, credit: credit, debit: debit, balance: @balance)
   end
 end
